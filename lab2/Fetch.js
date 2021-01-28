@@ -11,7 +11,7 @@ fetch() {
 axios("https://pokeapi.co/api/v2/pokemon/" + this.pokemon)
 .then((response) => {
     const Poke = response.data;
-    console.log(chalk.hex(this.color)(Poke.name + " and the id is " + Poke.id));
+    console.log(chalk.hex(this.color)(Poke.name + " I choose you! Your id is " + Poke.id));
 })
 .catch((error) => {
     console.log(chalk.red("Invalid ID " + error));

@@ -2,7 +2,7 @@ import { useState } from "react"
 import Axios from "axios";
 import Pokemon from "../Pokemon"
 
-function Search(props) {
+function Search() {
 
     const [search, setSearch] = useState("")
 

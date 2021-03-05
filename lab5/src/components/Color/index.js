@@ -12,16 +12,15 @@ class Color extends React.Component {
     render() {
         return (
             <div className = "Test">
-                <h2>Type either Red or any text</h2>
+                <h2>Type what color he is. Hint: Purple</h2>
                 <input type="text" onChange={(event) => {
             this.setState({color: event.target.value})
             }} />
             {
-                (this.state.color == "Red") ? (
+                (this.state.color == "Purple") ? (
                     <div className = "Bad">
-                    <p>You chose a deadly color</p>
+                    <p>You have identified his color!</p>
                     </div>
-                    
                 ) : (
                 <p>Your color:  {this.state.color}</p>
                 )

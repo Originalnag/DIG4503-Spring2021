@@ -15,14 +15,14 @@ class Check extends React.Component {
         return (
             <div>
                 <h2>Very spooky, be careful typing... the cursed word below</h2>
-                <p>Type Ghost if you wish to see it be <strong>bold</strong></p>
+                <p>Type Ghost if you wish to see haunter be <strong>bold</strong></p>
                 <input type="text" onChange={(trial1) => {
                     this.setState({ check: trial1.target.value })
                 }} />
                 {
                     (this.state.check == "Ghost") ? (
                         <div className="Ghost">
-                            <p>You have been haunted by a bolder <strong>{this.state.check}</strong> that is thinking of a million numbers, guess it right and it'll tell you</p>
+                            <p>You have been haunted by a bolder <strong>{this.state.check}</strong> haunter that is thinking of a million numbers, guess it right and it'll tell you</p>
                             <p>Hint: It is 2</p>
                             <input type="text" onChange={(trial2) => {
                     this.setState({ check2: trial2.target.value })

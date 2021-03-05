@@ -1,0 +1,15 @@
+
+.Ghost {
+    animation: fadeIn ease 5s;
+    color: black;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+    }
+    @keyframes fadeIn {
+    0% {         
+     opacity:0;
+    }
+    100% {
+     opacity:1;
+      }
+      
+}

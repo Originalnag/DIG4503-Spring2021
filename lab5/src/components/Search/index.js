@@ -34,6 +34,7 @@ function Search() {
             <button onClick={() => searchMonsters()
             }>Search</button>
             {
+                
                 <p>Searched: {search}</p>
             }
             {
@@ -47,6 +48,7 @@ function Search() {
                         </div>
                     )
             }
+
         </div>
     );
 }

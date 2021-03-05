@@ -48,7 +48,7 @@ class Check extends React.Component {
                 
                 {
                     (this.state.check3 == "Ghost") ? (
-                        <p>You are now free from the bold <strong>Ghost</strong></p>
+                        <p>You are now free from the bold Ghost</p>
                     ) : (
                             <p></p>
                         )

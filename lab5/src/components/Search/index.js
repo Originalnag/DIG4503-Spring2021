@@ -25,16 +25,16 @@ function Search() {
                 setError("Not found!")
             });
     }
-
+    
     return (
+        
         <div>
             <input type="text" onChange={(event) => {
                 setSearch(event.target.value);
             }} />
             <button onClick={() => searchMonsters()
-            }>Search</button>
+            }>Search </button>
             {
-                
                 <p>Searched: {search}</p>
             }
             {
@@ -44,7 +44,7 @@ function Search() {
                         <div>
                             <Pokemon name={pokemon.name}
                                 id={pokemon.id}
-                                sprites={pokemon.sprites.front_default} />
+                                sprites={pokemon.sprites.front_default}/>
                         </div>
                     )
             }

@@ -6,7 +6,7 @@ import Check from "./components/Check"
 function App() {
 
   const [loggedin, setLoggedin] = useState(false)
-  const [search, setSearch] = useState("")
+  const [name, setName] = useState("")
 
   return (
     <div>
@@ -15,26 +15,29 @@ function App() {
         <div>
         <p>Please enter your first name or username</p>
         <input type="text" onChange={(event) => {
-                setSearch(event.target.value);
+                setName(event.target.value);
             }} />
-            <button onClick={() => setLoggedin(search)
-            }>Search</button>
+            <button onClick={() => setLoggedin(name)
+            }>Login</button>
             {
-                <p>Username: {search}</p>
+                <p>Username: {name}</p>
             }
         </div>
       ) : 
       (
       <div>
-        <h1>Welcome, {search} !</h1>
+        <button onClick={() => setLoggedin(false)
+            }>Logout</button>
+        <h1>Welcome, {name} !</h1>
         <p>Search for <strong>haunter</strong>, in the pokedex</p>
-        
       <Search/>
       <Color />
       <Check />
       </div>
       )
       }
+      <div>
+      </div>
       
     </div>
 

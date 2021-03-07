@@ -1,4 +1,5 @@
 import React from "react"
+import "./index.css"
 
 class Pokemon extends React.Component {
     constructor(props) {
@@ -7,7 +8,7 @@ class Pokemon extends React.Component {
 
     render() {
         return (
-            <div>
+            <div class = "Box">
                 <h2>{this.props.name}</h2>
                 <p>{this.props.id}</p>
                 <img src={this.props.sprites} />

@@ -40,7 +40,7 @@ App.get('/search/:name', (req, res) => {
     });
 
     if(arrayResult.length > 0) {
-        result = {name: arrayResult};
+        result = {search: arrayResult};
     }
     res.json(result)
 });

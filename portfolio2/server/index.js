@@ -1,5 +1,5 @@
 import Express from "express";
-import Database from '../database/database.js';
+import Database from './Database.js';
 import CORS from 'cors';
 
 const App = Express();
@@ -11,45 +11,53 @@ const d = new Database();
 
 d.connect()
 
-App.put("/books/:ISBN", async (req, res) => {
-    const ISBN = req.params.ISBN
-    const title = req.body.title
+App.put("/BrianFlores/:anime", async (req, res) => {
+    const anime = req.params.anime;
     const author = req.body.author
-    const description = req.body.description
-    let result = await d.createOne(ISBN, title, author, description)
-    res.json(result)
-})
-
-App.get('/books/:ISBN', async (req, res) => {
-    const ISBN = req.params.ISBN;
-    const result = await d.readOne(ISBN);
+    const rating = req.body.rating
+    const result = await d.createOne(anime,author,rating, id)
 
     res.json(result)
 })
 
+App.put('/pokemon/:name', async (req, res) => {
+    const name = req.params.name;
+    const id = req.body.id;
+    const result = await d.add(name, id);
 
-App.post('/books/search', (req, res) => {
-    let title = req.query.title
-    let author = req.query.author
-    let result = d.readMany(title, author)
     res.json(result)
 })
 
 
-App.patch('/books/:ISBN', async (req, res) => {
-    const ISBN = req.params.ISBN
-    const title = req.body.title
+App.get('/BrianFlores/:anime', async (req, res) => {
+    const anime = req.params.anime;
+    const result = await d.readOne(anime);
+
+    res.json(result)
+})
+
+App.get('/pokemon/:name', async (req, res) => {
+    const name = req.params.name;
+    const id = req.body.id;
+    const result = await d.read(name, id);
+
+    res.json(result)
+})
+
+
+App.patch('/BrianFlores/:anime', async (req, res) => {
+    const anime = req.params.anime;
     const author = req.body.author
-    const description = req.body.description
-
-    const result = await d.updateOne(ISBN, title, author, description)
+    const rating = req.body.rating
+    const result = await d.updateOne(anime,author,rating)
 
     res.json(result)
 })
 
-App.delete('/books/:ISBN', async (req, res) => {
-    const ISBN = req.params.ISBN
-    const result = await d.deleteOne(ISBN)
+App.delete('/BrianFlores/:anime', async (req, res) => {
+    const anime = req.params.anime;
+   
+    const result = await d.deleteOne(anime)
 
     res.json(result)
 });

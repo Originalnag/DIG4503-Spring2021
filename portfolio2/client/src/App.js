@@ -1,45 +1,29 @@
-import { useState } from "react"
-import Search from "./components/Search"
-import Color from "./components/Color"
-import Check from "./components/Check"
+import Put from "./components/Put"
+import Patch from "./components/Patch"
+import Get from "./components/Get"
+import Delete from "./components/Delete"
+import Test from "./components/Test"
+import "./App.css"
+// import Test from "./components/Test"
 
 function App() {
 
-  const [loggedin, setLoggedin] = useState(false)
-  const [name, setName] = useState("")
-
   return (
-    <div>
-      {
-      (loggedin == false) ? (
-        <div>
-        <p>Please enter your first name or username</p>
-        <input type="text" onChange={(event) => {
-                setName(event.target.value);
-            }} />
-            <button onClick={() => setLoggedin(name)
-            }>Login</button>
-            {
-                <p>Username: {name}</p>
-            }
-        </div>
-      ) : 
-      (
-      <div>
-        <button onClick={() => setLoggedin(false)
-            }>Logout</button>
-        <h1>Welcome, {name} !</h1>
-        <p>Search for <strong>haunter</strong>, in the pokedex</p>
-      <Search/>
-      <Color />
-      <Check />
+    <div class = "Box2">
+     <h2>Find the Pokemon</h2>
+       <Test/>
+      <h2>Add an Anime</h2>
+     <Put/>
+     <h2>Find an Anime</h2>
+     <Get/>
+     <h2>Update an Anime</h2>
+     <Patch/>
+     <h2>Delete an Anime</h2>
+     <Delete/>
+   
       </div>
-      )
-      }
-      <div>
-      </div>
+     
       
-    </div>
 
   );
 }

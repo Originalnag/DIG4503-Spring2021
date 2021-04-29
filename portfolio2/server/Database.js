@@ -12,32 +12,43 @@ export default class Database {
     async connect() {
         this.connection = await MongoClient.connect(url, { useUnifiedTopology: true });
         this.database = this.connection.db("portfolio2");
-        this.collection = this.database.collection("brianflores");
+        this.collection = this.database.collection("BrianFlores");
     }
 
-    async createOne(ISBN, title, author, description) {
+    async createOne(anime, author, rating) {
         if (this.collection != null) {
             await this.collection.insertOne({
-                "ISBN": ISBN,
-                "title": title,
-                "author": author,
-                "description": description
+                "Anime": anime,
+                "Author": author,
+                "Rating": rating
             })
-            return { "ISBN": ISBN, "title": title, "author": author, "description": description }
+            return { "Anime": anime, "Author": author, "Rating": rating }
 
         } else {
             return "Connecting to MongoDB..."
         }
     }
 
-    async readOne(ISBN) {
+    async add(name) {
         if (this.collection != null) {
-            const result = await this.collection.findOne({ "ISBN": ISBN })
+            await this.collection.insertOne({
+                "pokemon": name
+            })
+            return { "pokemon": name }
+
+        } else {
+            return "Connecting to MongoDB..."
+        }
+    }
+
+    async readOne(anime) {
+        if (this.collection != null) {
+            const result = await this.collection.findOne({ "Anime": anime })
             if (result == null) {
-                return { Book: "Not found" }
+                return { Anime: "Not found" }
             }
             else {
-                return { Book: result };
+                return { Anime: result };
             }
         }
         else {
@@ -45,20 +56,16 @@ export default class Database {
         }
     }
 
-    readMany(title, author) {
+    async read(name, id) {
         if (this.collection != null) {
-           let cursor = this.collection.find({
-                "title": title,
-                "author": author
-            }).toArray()
-            .then((cursorArray) => {
-            if (cursorArray.length > 0 ) {
-                cursorArray.forEach((document) => {
-                    console.log(document.title,document.author)
-                })
+            const result = await this.collection.findOne({ "pokemon" : name, "id": id })
+            if (result == null) {
+                return { Pokemon: "Not found",
+            user: "Not found"}
             }
-            })
-            return {books: cursor}
+            else {
+                return { Pokemon: result };
+            }
         }
         else {
             return "Connecting to MongoDB..."
@@ -66,31 +73,30 @@ export default class Database {
     }
 
 
-    async updateOne(ISBN, title, author, description) {
+    async updateOne(anime, author, rating) {
         if (this.collection != null) {
             await this.collection.updateOne({
-                "ISBN": ISBN,
+                "Anime": anime,
             },
                 {
                     $set: {
-                        "title": title,
-                        "author": author,
-                        "description": description
+                        "Author": author,
+                        "Rating": rating
                     }
                 }
             )
-            return { "ISBN": ISBN, "title": title, "author": author, "description": description }
+            return { "Anime": anime, "Author": author, "Rating": rating }
         } else {
             return "Connecting to MongoDB..."
         }
     }
 
-    async deleteOne(ISBN) {
+    async deleteOne(anime) {
         if (this.collection != null) {
-            const result = await this.collection.deleteOne({ "ISBN": ISBN })
+            const result = await this.collection.deleteOne({ "Anime": anime })
             return { Books: result.deletedCount }
         } else {
-            return { Books: 0 };
+            return { Anime: 0 };
             
         } 
         

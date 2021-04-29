@@ -1,11 +1,23 @@
-.App {
+.Box2 {
   text-align: center;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Box {
+    background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 2.5px );
+-webkit-backdrop-filter: blur( 2.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+width: auto;
+text-align:center;
 }
+
+body {
+  background-image: url("https://wallpaperaccess.com/full/29839.jpg");
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

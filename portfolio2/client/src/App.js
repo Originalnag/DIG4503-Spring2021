@@ -2,16 +2,15 @@ import Put from "./components/Put"
 import Patch from "./components/Patch"
 import Get from "./components/Get"
 import Delete from "./components/Delete"
-import Test from "./components/Test"
+import Pokemon from "./components/Pokemon"
 import "./App.css"
-// import Test from "./components/Test"
 
 function App() {
 
   return (
     <div class = "Box2">
      <h2>Find the Pokemon</h2>
-       <Test/>
+       <Pokemon/>
       <h2>Add an Anime</h2>
      <Put/>
      <h2>Find an Anime</h2>
@@ -20,10 +19,7 @@ function App() {
      <Patch/>
      <h2>Delete an Anime</h2>
      <Delete/>
-   
       </div>
-     
-      
 
   );
 }

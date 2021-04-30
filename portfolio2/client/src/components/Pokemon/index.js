@@ -2,15 +2,13 @@ import Axios from "axios";
 
 import { useState } from 'react'
 
-function Test() {
+function Pokemon() {
 
     const [search, setSearch] = useState("");
 
     const [search2, setSearch2] = useState("");
 
     const [test, setTest] = useState({});
-    
-    const [test2, setTest2] = useState({});
 
     const [loading, setLoading] = useState(true);
 
@@ -66,7 +64,6 @@ function Test() {
                     <div>
                         <h1>You added:</h1>
                         <h2>Pokemon: {search2}</h2>
-                        <h2>Id: {test.id}</h2>
                     </div>
                 )
             }
@@ -78,4 +75,4 @@ function Test() {
     );
 }
 
-export default Test;
+export default Pokemon;
